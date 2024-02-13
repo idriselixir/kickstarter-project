@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+
 const items = [
   {
     id: 1,
@@ -100,15 +102,16 @@ const items = [
   },
 ];
 
+
 const GameOn = () => {
   return (
-    <div className="flex items-center flex-col justify-center mt-10 ">
-      <div className=" flex justify-center items-center pt-8 font-normal text-[30px] text-center mt-10 ">
+    <div className="flex items-center flex-col justify-center mt-[100px] ">
+      <div className=" flex justify-center items-center pt-8 font-normal text-[30px] text-center mt-11 ">
         <h1>From platformers to adventure to RPGs. Game on.</h1>
       </div>
       <div
         id="slider"
-        className=" flex  justify-center flex-wrap   pt-10 w-[90%] h-auto gap-10 "
+        className=" flex  justify-center flex-wrap   pt-10 w-[90%] h-auto gap-10  "
       >
         {items.map((item) => (
           <div key={item.id} className="">

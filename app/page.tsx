@@ -3,6 +3,8 @@ import { Sepolia } from "@thirdweb-dev/chains";
 import { ThirdwebProvider, metamaskWallet, coinbaseWallet } from "@thirdweb-dev/react";
 import PlayNow from "@/components/PlayNow";
 import GameOn from "@/components/GameOn";
+import Footer from "@/components/Footer";
+
 
 
 export default function Home() {
@@ -15,6 +17,9 @@ export default function Home() {
       <section>
         <GameOn />
       </section>
+
+      <Footer />
     </ThirdwebProvider>
+
   );
 }
