@@ -69,11 +69,15 @@ const items = [
   const PlayNow = () => {
     const slideleft = () => {
       var slider = document.getElementById("slider");
-      slider.scrollLeft = slider.scrollLeft - 500;
+      if (slider) {
+        slider.scrollLeft = slider.scrollLeft - 500;
+      }
     };
     const slideRight = () => {
       var slider = document.getElementById("slider");
-      slider.scrollLeft = slider.scrollLeft + 500;
+      if (slider) {
+        slider.scrollLeft = slider.scrollLeft + 500;
+      }
     };
     return (
       <div className="flex flex-col items-center text-center justify-center pt-[50px]">
