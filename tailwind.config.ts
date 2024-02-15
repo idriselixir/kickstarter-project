@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         hero: "url('/oculus.jpg')",
-        // logo: "url('/logo.jpg')",
+        Footer: "url('/green.png')",
       },
 
     }
