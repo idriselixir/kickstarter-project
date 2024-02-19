@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image"
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination , Navigation} from 'swiper/modules';
 const items = [
     {
       id: 1,
@@ -80,7 +85,7 @@ const items = [
       }
     };
     return (
-      <div className="flex flex-col items-center text-center justify-center pt-[50px]">
+      <div className="flex flex-col items-center text-center justify-center pt-[50px] gap-10">
         <div className="flex flex-col text-center items-center">
           <h1 className="font-mono text-[90px] font- font-medium text-black ">
             Play now
@@ -89,19 +94,25 @@ const items = [
             Over 200 games made with Kickstarter, now available on Steam
           </p>
         </div>
-        <div className="flex justify-center items-center gap-4 relative w-screen">
-          <MdChevronLeft
-            size={70}
-            onClick={slideleft}
-            className="text-slate-500"
-          />
-          <div
-            id="slider"
-            className=" flex overflow-x-scroll  scroll  whitespace-nowrap  scroll-smooth w-[850px] h-full pt-[50px] gap-7"
+        <div className="flex justify-center items-center gap-4 relative w-[80%]">
+         
+          <Swiper
+          spaceBetween={30}
+          slidesPerView={2}
+          pagination={
+            {
+              "clickable": true
+            }}
+            modules={[Pagination , Navigation]}
+            navigation={true}
+            className="mySwiper"
           >
+           
             {items.map((item) => (
+               <SwiperSlide key={item.id}
+               className="flex  flex-col justify-center flex-wrap m-0 items-center pb-[90px]">
               <div key={item.id}>
-                <div className="flex flex-wrap gap-6 w-40 h-40 md:w-60 md:h-60  bg-green-500 lg:w-[300px] lg:h-[250px] xl:w-[400px] xl:h-[350px] transition-transform duration-300 transform hover:scale-110 border-[10x] border-slate-600 group">
+                <div className="flex  border-[6px] border-slate-400 gap-6 w-40 h-40 md:w-60 md:h-60  bg-green-500 lg:w-[300px] lg:h-[250px] xl:w-[400px] xl:h-[350px] transition-transform duration-300 transform hover:scale-110 hover:border-hidden group">
                   <Image src={item.img} alt="Play on Stream" fill className="" />
                   <div className="opacity-0 group-hover:opacity-100 duration-300 hover:animate-[wiggle_3s_ease-in-out_infinite] absolute inset-x-0 bottom-0   top-0 flex justify-center text-center items-center hover:bg-opacity-90 bg-green-900 text-slate-100 k font-normal">
                     Play On Stream
@@ -117,19 +128,17 @@ const items = [
                 </div>
                
               </div>
+              </SwiperSlide>
             ))}
-          </div>
-          <MdChevronRight
-            size={70}
-            onClick={slideRight}
-            className="text-slate-500"
-          />
+           
+          </Swiper>
         </div>
-  
+    
         <div className="flex justify-center gap-3 items-center ">
           <Image src="/twitter.png" alt="" width={30} height={30} />
           <Image src="/facebook.png" alt="" width={30} height={30} />
         </div>
+       
       </div>
     );
   };
